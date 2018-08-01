@@ -18,7 +18,7 @@ import {Observable} from "rxjs";
 export class LockScreenPage {
   myDate: Object ;
   s = API_URL;
-  public temperature :any;
+  public temperature :Object[];
   public getTemperature :Observable<any>;
   public arrayTemps :any;
   public cityName : string;
