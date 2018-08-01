@@ -13,21 +13,37 @@
       Welcome to the Insight Group
     </h1>
   </div>
-  <p>{{myDate}}</p>
+  <div class="date-block">
+    <p class="date-top">
+      {{myDate.day}}, {{myDate.month}} {{myDate.monthDay}} {{myDate.year}}
+    </p>
+    <p class="time">
+      {{myDate.time}}
+    </p>
+  </div>
   <div class="temperature">
     <div class="top">
       <p class="city-name">
-        Kiev
+        {{cityName}}
       </p>
       <p class="temp">
-        <img src="">
-        <span></span>
+        <img [src]="tIcon">
+        <!--<span>{{currentTemp | temperature:'C'}}</span>-->
       </p>
     </div>
   </div>
-  <p *ngFor="let item of www">
-    <img [src]="'https://openweathermap.org/img/w/'+item.weather[0].icon+'.png'">
+  <div class="days-temp">
+    <div class="temp-item" *ngFor="let item of temperature">
+      <p class="week-day">
+        {{item.date_epoch*1000 | date:'EEE'}}
+        {{item.date_epoch}}
+      </p>
+      <img [src]="item.day.condition.icon">
 
-    {{item.weather[0].icon}}</p>
-
+      <p><span class="max_temp">{{item.day.maxtemp_c}}
+      </span>
+      <span class="min_temp">{{item.day.mintemp_c}}
+      </span></p>
+    </div>
+  </div>
 </ion-content>

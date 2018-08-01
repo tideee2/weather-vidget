@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import {LockScreenPage} from "../pages/lock-screen/lock-screen";
 import {HttpClientModule} from "@angular/common/http";
+import {PipesModule} from "../pipes/pipes.module";
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
   imports: [
     BrowserModule,
     HttpClientModule,
+    PipesModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

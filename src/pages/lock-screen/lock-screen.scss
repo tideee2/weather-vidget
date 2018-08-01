@@ -5,4 +5,19 @@ page-lock-screen {
   p{
     font-size: 40px;
   }
+  .days-temp{
+    display:flex;
+    flex-direction: row;
+    border:1px solid red;
+    .temp-item{
+      margin:0 10px;
+      width:20%;
+      display: flex;
+      flex-direction: column;
+      img{
+        width:80%;
+        display: block;
+      }
+    }
+  }
 }
