@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 import {API_URL, API_URL2} from "../../config/config";
 import {Observable} from "rxjs";
+import {HomePage} from "../home/home";
 /**
  * Generated class for the LockScreenPage page.
  *
@@ -25,11 +26,15 @@ export class LockScreenPage {
   public temperatureNew: Observable<any>;
   public tIcon : string = '';
   public currentTemp : number;
+  public timer : any;
   constructor(
     public http: HttpClient,
     public navCtrl: NavController,
     public navParams: NavParams) {
     this.myDate = this.getFormattedDate(new Date());
+    this.timer = Observable.timer(1000,1000).subscribe((x)=>{
+      this.myDate = this.getFormattedDate(new Date());
+    });
     this.getTemperature = this.http.get(API_URL2);
     this.getTemperature.subscribe(data=>{
       this.cityName = data.location.name;
@@ -41,6 +46,7 @@ export class LockScreenPage {
   }
 
   ionViewDidLoad() {
+
     console.log('ionViewDidLoad LockScreenPage');
     console.log('ffff');
   }
@@ -64,17 +70,20 @@ export class LockScreenPage {
     const mounths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     let year = date.getFullYear();
+    let seconds = date.getSeconds();
     return {
       day: weekdays[day],
       month: mounths[month],
       monthDay: monthDay,
-      time: hours+':'+minutes+' '+x,
+      time: hours+':'+((minutes<10)? '0'+minutes:minutes)+':'+seconds+' '+x,
       hours: hours + x,
       minutes: minutes,
+      seconds: seconds,
       year: year
     }
   }
-  cl(){
-
+  gotoHome(){
+    console.log('qq');
+    this.navCtrl.setRoot(HomePage,{})
   }
 }

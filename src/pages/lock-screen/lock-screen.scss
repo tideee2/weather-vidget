@@ -1,23 +1,127 @@
 page-lock-screen {
+  *{
+    margin: 0;
+  }
+  .main{
+    width:70%;
+    margin-left: 30px;
+  }
   .scroll-content{
     background: url('./../../assets/imgs/background.png');
   }
-  p{
-    font-size: 40px;
+  .head{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    h1{
+      font-size: 3.4em!important;
+      font-weight: normal!important;
+    }
   }
+  .date-block{
+    p{
+      font-size: 2em!important;
+      text-align: center;
+    }
+    .time{
+      margin-top: 20px;
+
+      font-size: 5em!important;
+    }
+  }
+  .temperature{
+    margin-bottom: 40px;
+    .city-name{
+      text-align: center;
+      font-size: 4em;
+      margin:20px 0 0 0;
+    }
+    .temp{
+
+      font-size: 3.5em!important;
+      display:flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+  }
+
   .days-temp{
     display:flex;
     flex-direction: row;
-    border:1px solid red;
     .temp-item{
       margin:0 10px;
       width:20%;
       display: flex;
       flex-direction: column;
+      align-items: center;
       img{
         width:80%;
         display: block;
       }
+      .week-day{
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+      .max-temp,
+      .min-temp{
+        font-size: 1.5em!important;
+      }
+      .max-temp{
+        margin-right: 10px;
+        color: red;
+      }
+      .min-temp{
+        color: blue;
+      }
     }
+  }
+  .unlock-item{
+    margin-top:10px;
+    z-index: 200;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .img-wrapper{
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background-color: rgba(0,0,0,0.1);
+      padding:10px;
+      box-shadow: 0 4px 22px rgba(0,0,0, 0.25),
+                  inset 0 3px 0 rgba(255,255,255, 0.5),
+                  0 3px 0 rgba(0,0,0, 0.1),
+                  inset 0 0 22px rgba(0,0,0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .img-wrapper{
+      &::after{
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        bottom: -50%;
+        left: -50%;
+        background: linear-gradient(to bottom,  rgba(229, 172, 142, 0),
+                                                rgba(255,255,255,0.7) 50%,
+                                                rgba(229, 172, 142, 0));
+        transform: rotateZ(60deg) translate(-5em, 7.5em);
+        animation: sheen 3s 3s alternate infinite;
+      }
+    }
+    span{
+      margin-left:20px;
+      font-size: 2.7em!important;
+    }
+    img{
+
+    }
+  }
+}
+@keyframes sheen {
+  100% {
+    transform: rotateZ(60deg) translate(1em, -9em);
   }
 }

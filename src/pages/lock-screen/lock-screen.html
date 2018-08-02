@@ -8,41 +8,48 @@
 
 
 <ion-content padding>
-  <div class="head" (click)="cl()">
-    <h1>
-      Welcome to the Insight Group
-    </h1>
-  </div>
-  <div class="date-block">
-    <p class="date-top">
-      {{myDate.day}}, {{myDate.month}} {{myDate.monthDay}} {{myDate.year}}
-    </p>
-    <p class="time">
-      {{myDate.time}}
-    </p>
-  </div>
-  <div class="temperature">
-    <div class="top">
-      <p class="city-name">
-        {{cityName}}
+  <div class="main">
+    <div class="head" (click)="cl()">
+      <h1>
+        Welcome to the Insight Group
+      </h1>
+    </div>
+    <div class="date-block">
+      <p class="date-top">
+        {{myDate.day}}, {{myDate.month}} {{myDate.monthDay}} {{myDate.year}}
       </p>
-      <p class="temp">
-        <img [src]="tIcon">
-        <!--<span>{{currentTemp | temperature:'C'}}</span>-->
+      <p class="time">
+        {{myDate.time}}
       </p>
     </div>
-  </div>
-  <div class="days-temp">
-    <div class="temp-item" *ngFor="let item of temperature">
-      <p class="week-day">
-        {{item.date_epoch*1000 | date:'EEE'}}
-      </p>
-      <img [src]="item.day.condition.icon">
+    <div class="temperature">
+      <div class="top">
+        <p class="city-name">
+          {{cityName}}
+        </p>
+        <p class="temp">
+          <img [src]="tIcon">
+          <span>{{currentTemp | temperature:'C'}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="days-temp">
+      <div class="temp-item" *ngFor="let item of temperature">
+        <p class="week-day">
+          {{item.date_epoch*1000 | date:'EEE'}}
+        </p>
+        <img [src]="item.day.condition.icon">
 
-      <p><span class="max_temp">{{item.day.maxtemp_c}}
-      </span>
-      <span class="min_temp">{{item.day.mintemp_c}}
-      </span></p>
+        <p><span class="max-temp">{{item.day.maxtemp_c | temperature:'C'}}
+        </span>
+        <span class="min-temp">{{item.day.mintemp_c | temperature:'C'}}
+        </span></p>
+      </div>
+    </div>
+    <div class="unlock-item" (click)="gotoHome();">
+      <div class="img-wrapper"><img src="assets/imgs/lock.png"></div>
+      <span>Please Tap to unlock</span>
     </div>
   </div>
+
 </ion-content>
