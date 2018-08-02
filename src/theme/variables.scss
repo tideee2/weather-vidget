@@ -5,7 +5,13 @@
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
 
-
+@font-face {
+  font-family: myFirstFont;
+  src: url('../assets/fonts/Quarto-Regular.ttf');
+}
+body{
+  font-family: myFirstFont!important;
+}
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/

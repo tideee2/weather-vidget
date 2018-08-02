@@ -10,6 +10,7 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
 import {LockScreenPage} from "../pages/lock-screen/lock-screen";
 import {HttpClientModule} from "@angular/common/http";
 import {PipesModule} from "../pipes/pipes.module";
+import {AppsProvider} from "../assets/apps";
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import {PipesModule} from "../pipes/pipes.module";
     LockScreenPage
   ],
   providers: [
-
+    AppsProvider,
     InAppBrowser,
     StatusBar,
     SplashScreen,

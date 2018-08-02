@@ -1,4 +1,4 @@
-export const apps = [
+export const apps_const = [
       {
         name: 'Travel',
         image: 'travel.png',
